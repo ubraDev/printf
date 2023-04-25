@@ -9,7 +9,7 @@ void print_buffer(char buffer[], int *buff_ind);
  */
 int _printf(const char *format, ...)
 {
-int i, printed = 0, num_chars_printed = 0;
+int i, printed = 0, printed_chars = 0;
 int flags, width, precision, size, buff_ind = 0;
 va_list list;
 char buffer[BUFF_SIZE];
@@ -27,7 +27,7 @@ buffer[buff_ind++] = format[i];
 if (buff_ind == BUFF_SIZE)
 print_buffer(buffer, &buff_ind);
 /* write(1, &format[i], 1);*/
-num_chars_printed++;
+printed_chars++;
 }
 else
 {
@@ -41,7 +41,7 @@ printed = handle_print(format, &i, list, buffer,
 flags, width, precision, size);
 if (printed == -1)
 return (-1);
-num_chars_printed += printed;
+printed_chars += printed;
 }
 }
 
@@ -49,7 +49,7 @@ print_buffer(buffer, &buff_ind);
 
 va_end(list);
 
-return (num_chars_printed);
+return (printed_chars);
 }
 
 /**
