@@ -30,6 +30,7 @@ char fmt;
 int (*fn)(va_list, char[], int, int, int, int);
 };
 
+
 /**
  * typedef struct fmt fmt_t - Struct op
  *
@@ -104,6 +105,7 @@ int width, int flags, char padd, char extra_c, int padd_start);
 int write_unsgnd(int is_negative, int ind,
 char buffer[],
 int flags, int width, int precision, int size);
+
 /****************** UTILS ******************/
 int is_printable(char);
 int append_hexa_code(char, char[], int);
